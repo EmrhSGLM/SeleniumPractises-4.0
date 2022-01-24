@@ -14,7 +14,6 @@
     </properties>
 
     <dependencies>
-
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -36,7 +35,6 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
-
 
     </dependencies>
 

@@ -1,7 +1,9 @@
 package questions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import java.util.List;
 
-public class Q05 {
+public class Q05_Junit {
 //● https://www.amazon.com/ adresine gidin.
 //              - Test 1
 //    Arama kutusunun yanindaki kategori menusundeki kategori
@@ -45,8 +47,9 @@ public class Q05 {
         driver.findElement(By.xpath("(//option)[6]")).click();
         WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
         searchBox.sendKeys("Java" + Keys.ENTER);
-        List<WebElement> javaResultNumber = driver.findElements(By.xpath("//span[@class='a-size-medium a-color-base a-text-normal']"));
-        System.out.println("Result Numbers : " + javaResultNumber.size());
+        String javaResultNumber = driver.findElement(By.xpath("//span[text()='1-16 of over 30,000 results for']")).getText();
+        String resultNumber[] = javaResultNumber.split(" ");
+        System.out.println("Result Numbers : " + resultNumber[3]);
         String actualWriting = driver.findElement(By.xpath("(//span[@class='a-size-medium a-color-base a-text-normal'])[1]")).getText();
         String expected = "Java";
         System.out.println(actualWriting.contains(expected) ? "Java testi PASSED" : "Java testi FAILED");
@@ -60,7 +63,7 @@ public class Q05 {
         driver.get("https://www.amazon.com");
     }
     @AfterClass
-    public void finish(){
+    public static void kapanis(){
     driver.close();
     }
 }
