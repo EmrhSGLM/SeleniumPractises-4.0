@@ -12,7 +12,7 @@ public class Q01 {
     //6. Sayfa adresini(url) yazdirin
     //7. Sayfa url’inin “amazon” icerdigini test edin.
     //8. Sayfa handle degerini yazdirin
-    //9. Sayfa HTML kodlarinda “alisveris” kelimesi gectigini test edin
+    //9. Sayfa HTML kodlarinda “shopping” kelimesi gectigini test edin
     //10. Sayfayi kapatin.
 
     public static void main(String[] args) {
@@ -34,7 +34,9 @@ public class Q01 {
         //8. Sayfa handle degerini yazdirin
         System.out.println("Page Handle => "+driver.getWindowHandle());
         //9. Sayfa HTML kodlarinda “alisveris” kelimesi gectigini test edin
-
+        String actualHTML = driver.getPageSource();
+        String expectedHTML = "shopping";
+        System.out.println(actualHTML.contains(expectedHTML) ? "PASS" : "FAIL");
         //10. Sayfayi kapatin.
         driver.close();
 
